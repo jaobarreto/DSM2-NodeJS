@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+    <h1>Meus Pedidos</h1>
+
+    <%#= pedidos %>
+
+    <!--Exibindo o array de objetos através do forEach-->
+    <% pedidos.forEach(pedido => {  %>
+        Produto: <%= pedido.produto %> <br>
+        Preço: <%= pedido.preco %> <br><br>
+    <% }) %>
+
+    <h4>forEach dentro de tabela</h4>
+    <table border="1">
+        <tr>
+            <th>Produtos:</th>
+            <th>Preço:</th>
+        </tr>
+        <% pedidos.forEach(pedido => { %>
+        <tr>
+            <td><%= pedido.produto %></td>
+            <td><%= pedido.preco %></td>
+        </tr>
+        <% }) %>
+    </table>
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,1 @@
+console.log('Arquivos estáticos importados com sucesso')
