@@ -1,22 +1,21 @@
-import { Sequelize } from "sequelize";
-
+import Sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
 
-const Cliente = connection.define('clientes', {
+const Produto = connection.define('produtos', {
     nome: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    cpf: {
-        type: Sequelize.STRING,
+    preco: {
+        type: Sequelize.DOUBLE,
         allowNull: false
     },
-    endereco:{
+    categoria: {
         type: Sequelize.STRING,
         allowNull: false
     }
 })
 
-Cliente.sync({force: false})
+Produto.sync({force:false})
 
-export default Cliente
+export default Produto
