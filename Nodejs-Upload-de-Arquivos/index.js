@@ -2,6 +2,8 @@ import express from 'express'
 const app = express()
 import multer from 'multer'
 import connection from './config/sequelize-config.js'
+import Galeria from "./models/Galeria.js"
+import GaleriaService from './services/galeriaService.js'
 
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
@@ -28,7 +30,9 @@ app.get("/", (req, res) =>{
 
 //rota upload
 app.post("/upload", upload.single("file"), (req, res) =>{
-    res.send("Arquivo recebido!")
+    const file = req.file.filename
+    GaleriaService.Save(file)
+    res.redirect("/")
 })
 
 const port = 8080
